@@ -154,12 +154,12 @@ class MyLayout extends StatelessWidget {
                                     children: [
                                       {"time": "10:00", "temp": "26°C", "icon": Icons.wb_sunny, "color": const Color.fromARGB(255, 255, 203, 59)},
                                       {"time": "11:00", "temp": "27°C", "icon": Icons.wb_sunny, "color": const Color.fromARGB(255, 255, 203, 59)},
-                                      {"time": "12:00", "temp": "25°C", "icon": Icons.cloud_queue},
+                                      {"time": "13:00", "temp": "25°C", "icon": Icons.cloud_queue},
                                       {"time": "13:00", "temp": "24°C", "icon": Icons.cloud},
-                                      {"time": "14:00", "temp": "25°C", "icon": Icons.wb_sunny, "color": const Color.fromARGB(255, 255, 203, 59)},
-                                      {"time": "15:00", "temp": "24°C", "icon": Icons.cloudy_snowing},
-                                      {"time": "16:00", "temp": "23°C", "icon": Icons.cloud},
-                                      {"time": "17:00", "temp": "22°C", "icon": Icons.thunderstorm},
+                                      {"time": "10:00", "temp": "25°C", "icon": Icons.wb_sunny, "color": const Color.fromARGB(255, 255, 203, 59)},
+                                      {"time": "14:00", "temp": "24°C", "icon": Icons.cloudy_snowing},
+                                      {"time": "14:00", "temp": "23°C", "icon": Icons.cloud},
+                                      {"time": "15:00", "temp": "22°C", "icon": Icons.thunderstorm},
                                     ].map((data) {
                                       return Container(
                                         decoration: BoxDecoration(
