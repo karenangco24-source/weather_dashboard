@@ -77,7 +77,7 @@ class MyLayout extends StatelessWidget {
                                 Expanded(
                                   flex: 4,
                                   child: Align(
-                                    alignment: Alignment(1,1), 
+                                    alignment: const Alignment(1, 1),
                                     child: Image.asset(
                                       'assets/cloudysunshine.png',
                                       width: 200,
@@ -87,59 +87,130 @@ class MyLayout extends StatelessWidget {
                                   ),
                                 ),
 
-                          Expanded(
-                            flex: 6,
-                            child: Container(
-                              alignment: Alignment.centerLeft,
-                              padding: const EdgeInsets.only(left: 35, top: 30),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Text(
-                                    "25°C",
-                                    style: TextStyle(
-                                      fontSize: 70,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black,
+                                Expanded(
+                                  flex: 6,
+                                  child: Container(
+                                    alignment: Alignment.centerLeft,
+                                    padding: const EdgeInsets.only(
+                                        left: 35, top: 30),
+                                    child: const Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "25°C",
+                                          style: TextStyle(
+                                            fontSize: 70,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                          ),
+                                        ),
+                                        SizedBox(height: 7),
+                                        Text(
+                                          "Cloudy with a chance of sunshine\nLondon, UK",
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            color: Color.fromARGB(255, 0, 0, 0),
+                                            height: 1.2,
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                  SizedBox(height: 7),
-                                  Text(
-                                    "Cloudy with a chance of sunshine\nLondon, UK",
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      color: Color.fromARGB(255, 0, 0, 0),
-                                      height: 1.2,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
+                                ),
                               ],
                             ),
                           ),
 
-                         Expanded(
-                          flex: 63,
-                          child: Container(
-                            width: double.infinity,
-                            padding: const EdgeInsets.symmetric(horizontal: 30), 
-                            child: Align(
-                              alignment: Alignment.bottomCenter, 
-                              child: Container(
-                                height: 380,
-                                width: double.infinity,
-                                margin: const EdgeInsets.only(bottom: 4), 
-                                decoration: BoxDecoration(
-                                  color: const Color.fromARGB(255, 199, 205, 217),
-                                  borderRadius: BorderRadius.circular(25),
+                          Expanded(
+                            flex: 63,
+                            child: Container(
+                              width: double.infinity,
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 30),
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Container(
+                                  height: 380,
+                                  width: double.infinity,
+                                  margin: const EdgeInsets.only(bottom: 4),
+                                  decoration: BoxDecoration(
+                                    color: const Color.fromARGB(
+                                        255, 199, 205, 217),
+                                    borderRadius: BorderRadius.circular(25),
+                                  ),
+                                  padding: const EdgeInsets.all(20),
+
+                                  child: GridView.count(
+                                    padding:
+                                        const EdgeInsets.only(top: 20),
+                                    crossAxisCount: 4,
+                                    crossAxisSpacing: 20,
+                                    mainAxisSpacing: 20,
+                                    childAspectRatio: 1,
+
+                                    children: [
+                                      {"time": "10:00", "temp": "26°C", "icon": Icons.wb_sunny, "color": const Color.fromARGB(255, 255, 203, 59)},
+                                      {"time": "11:00", "temp": "27°C", "icon": Icons.wb_sunny, "color": const Color.fromARGB(255, 255, 203, 59)},
+                                      {"time": "12:00", "temp": "25°C", "icon": Icons.cloud_queue},
+                                      {"time": "13:00", "temp": "24°C", "icon": Icons.cloud},
+                                      {"time": "14:00", "temp": "25°C", "icon": Icons.wb_sunny, "color": const Color.fromARGB(255, 255, 203, 59)},
+                                      {"time": "15:00", "temp": "24°C", "icon": Icons.cloudy_snowing},
+                                      {"time": "16:00", "temp": "23°C", "icon": Icons.cloud},
+                                      {"time": "17:00", "temp": "22°C", "icon": Icons.thunderstorm},
+                                    ].map((data) {
+                                      return Container(
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          boxShadow: const [
+                                            BoxShadow(
+                                              color: Colors.black12,
+                                              blurRadius: 4,
+                                              offset: Offset(1, 1),
+                                            ),
+                                          ],
+                                        ),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              data["time"]! as String,
+                                              style: const TextStyle(
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                                color: Color.fromARGB(255, 143, 143, 143),
+                                              ),
+                                            ),
+                                            const SizedBox(height: 8),
+
+                                            Icon(
+                                              data["icon"] as IconData,
+                                              size: 30,
+                                              color: data["color"] as Color? ?? const Color.fromARGB(255, 161, 174, 180),
+                                            ),
+
+                                            const SizedBox(height: 8),
+                                            Text(
+                                              data["temp"]! as String,
+                                              style: const TextStyle(
+                                                fontSize: 25,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    }).toList(),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
                         ],
                       ),
                     ),
