@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,7 +30,7 @@ class MyLayout extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
-              flex: 15,
+              flex: 14,
               child: Center(
                 child: Container(
                   width: screenWidth * 0.5,
@@ -37,7 +38,7 @@ class MyLayout extends StatelessWidget {
                   child: const Text(
                     "Weather Dashboard",
                     style: TextStyle(
-                      fontSize: 40,
+                      fontSize: 38,
                       fontWeight: FontWeight.bold,
                       fontFamily: 'Roboto',
                     ),
@@ -51,7 +52,98 @@ class MyLayout extends StatelessWidget {
               child: Center(
                 child: Container(
                   width: screenWidth * 0.5,
-                  color: Colors.transparent,
+                  child: Center(
+                    child: Container(
+                      width: 700,
+                      height: 700,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFE6ECF5),
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: 15,
+                            offset: Offset(4, 4),
+                          ),
+                        ],
+                      ),
+
+                      child: Column(
+                        children: [
+                          Expanded(
+                            flex: 37,
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  flex: 4,
+                                  child: Align(
+                                    alignment: Alignment(1,1), 
+                                    child: Image.asset(
+                                      'assets/cloudysunshine.png',
+                                      width: 200,
+                                      height: 200,
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                ),
+
+                          Expanded(
+                            flex: 6,
+                            child: Container(
+                              alignment: Alignment.centerLeft,
+                              padding: const EdgeInsets.only(left: 35, top: 30),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: const [
+                                  Text(
+                                    "25°C",
+                                    style: TextStyle(
+                                      fontSize: 70,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  SizedBox(height: 7),
+                                  Text(
+                                    "Cloudy with a chance of sunshine\nLondon, UK",
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      color: Color.fromARGB(255, 0, 0, 0),
+                                      height: 1.2,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                              ],
+                            ),
+                          ),
+
+                         Expanded(
+                          flex: 63,
+                          child: Container(
+                            width: double.infinity,
+                            padding: const EdgeInsets.symmetric(horizontal: 30), 
+                            child: Align(
+                              alignment: Alignment.bottomCenter, 
+                              child: Container(
+                                height: 380,
+                                width: double.infinity,
+                                margin: const EdgeInsets.only(bottom: 4), 
+                                decoration: BoxDecoration(
+                                  color: const Color.fromARGB(255, 199, 205, 217),
+                                  borderRadius: BorderRadius.circular(25),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -69,12 +161,12 @@ class MyLayout extends StatelessWidget {
                         label: "Home",
                         isActive: true,
                       ),
-                      SizedBox(width: 53),
+                      SizedBox(width: 54),
                       NavItem(
                         icon: Icons.search,
                         label: "Search",
                       ),
-                      SizedBox(width: 53),
+                      SizedBox(width: 54),
                       NavItem(
                         icon: Icons.person,
                         label: "Profile",
@@ -112,7 +204,7 @@ class NavItem extends StatelessWidget {
           icon: icon,
           isActive: isActive,
           size: 50,
-          iconSize: 30,
+          iconSize: 32,
         ),
         const SizedBox(height: 6),
         Text(
